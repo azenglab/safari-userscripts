@@ -5,7 +5,7 @@
 
 A curated collection of lightweight, zero-configuration **SEO Userscripts** specially optimized for **iOS Safari (Stay / Userscripts app)** and desktop users.
 
-🌐 **Live Directory & One-Click Install:** [https://你的用户名.github.io/safari-userscripts/](https://你的用户名.github.io/safari-userscripts/)
+🌐 **Live Directory & One-Click Install:** [https://azenglab.github.io/safari-userscripts/](https://azenglab.github.io/safari-userscripts/)
 
 ---
 
