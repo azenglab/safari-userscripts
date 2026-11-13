@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari Userscripts - iOS Safari & SEO 浏览器脚本分发中心</title>
+    <meta name="description" content="专为 iOS Safari (Stay) 和桌面端浏览器打造的极简 SEO 用户脚本合集，支持一键安装、流量查询与 Markdown 报告导出。">
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#f8fafc] text-[#0f172a] font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- 顶部极简导航栏 -->
+    <header class="w-full border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-white font-bold text-sm">S</div>
+                <span class="font-bold text-base tracking-tight">Safari Userscripts</span>
+            </div>
+            <div class="flex items-center gap-4 text-sm font-medium text-slate-600">
+                <a href="#scripts" class="hover:text-slate-900 transition">探索脚本</a>
+                <a href="https://github.com/你的用户名/safari-userscripts" target="_blank" class="hover:text-slate-900 transition">GitHub 仓库</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面主体 Hero 区域 -->
+    <main class="max-w-6xl mx-auto px-6 py-12 flex-1 w-full">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-semibold rounded-full mb-3 inline-block">
+                📱 Optimized for iOS Safari & Stay Extension
+            </span>
+            <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl mb-3">
+                为移动端 SEO 打造的轻量脚本库
+            </h1>
+            <p class="text-slate-500 text-sm sm:text-base">
+                零配置、免修改代码。直接在手机 Safari 或桌面浏览器中一键安装，随时随地查看竞争对手流量。
+            </p>
+        </div>
+
+        <!-- 脚本卡片动态渲染容器 -->
+        <div id="script-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 脚本卡片将通过 JavaScript 自动从 scripts.json 加载 -->
+        </div>
+    </main>
+
+    <!-- 底部版权 -->
+    <footer class="w-full border-t border-slate-200 bg-white py-6 mt-12">
+        <div class="max-w-6xl mx-auto px-6 text-center text-xs text-slate-400">
+            &copy; 2026 Safari Userscripts Hub. Built for Mobile & Desktop SEO Productivity.
+        </div>
+    </footer>
+
+    <!-- 自动渲染脚本逻辑 -->
+    <script>
+        fetch('./scripts.json')
+            .then(res => res.json())
+            .then(scripts => {
+                const grid = document.getElementById('script-grid');
+                grid.innerHTML = scripts.map(s => `
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-semibold rounded-full flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ${s.status}
+                                </span>
+                                <span class="text-xs text-slate-400 font-mono">v${s.version}</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-base mb-1.5">${s.name}</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6">
+                                ${s.description}
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                            <a href="${s.installUrl}" class="flex-1 text-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition shadow-sm">
+                                一键安装
+                            </a>
+                            <a href="${s.sourceUrl}" target="_blank" class="p-2.5 text-slate-500 hover:text-slate-900 hover:bg-slate-50 rounded-xl transition text-xs font-medium border border-slate-200">
+                                源码
+                            </a>
+                        </div>
+                    </div>
+                `).join('');
+            })
+            .catch(err => {
+                console.error('Failed to load scripts:', err);
+            });
+    </script>
+</body>
+</html>
