@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://azenglab.github.io/safari-userscripts/sitemap.xml
