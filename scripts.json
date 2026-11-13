@@ -7,6 +7,6 @@
     "status": "运行稳定",
     "description": "在网页右下角生成极简悬浮球，秒开清爽 traffic.cv 报告弹窗，自动记录每日浏览历史并支持一键导出 Markdown 报告。",
     "installUrl": "./scripts/traffic-cv-helper.user.js",
-    "sourceUrl": "https://github.com/你的用户名/safari-userscripts/blob/main/scripts/traffic-cv-helper.user.js"
+    "sourceUrl": "https://github.com/azenglab/safari-userscripts/blob/main/scripts/traffic-cv-helper.user.js"
   }
 ]
