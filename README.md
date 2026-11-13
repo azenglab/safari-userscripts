@@ -20,7 +20,7 @@ A curated collection of lightweight, zero-configuration **SEO Userscripts** spec
 ## 🛠️ How to Install on iOS Safari
 
 1. Install **[Stay](https://apps.apple.com/app/stay-for-safari/id1591620171)** or **Userscripts** from the iOS App Store.
-2. Visit our [Official Web Directory](https://你的用户名.github.io/safari-userscripts/).
+2. Visit our [Official Web Directory](https://azenglab.github.io/safari-userscripts/).
 3. Tap **"一键安装"** on any card—your script manager will instantly trigger the installation.
 
 ---
